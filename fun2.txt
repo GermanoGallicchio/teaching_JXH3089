@@ -1,0 +1,72 @@
+% Basic MATLAB Tutorial Script
+% Created for Undergraduate Students with No Coding Knowledge
+
+% Section 1: Hello World
+disp('Hello, World! Welcome to MATLAB.');
+
+% Section 2: Simple Arithmetic
+a = 10;
+b = 5;
+result = a + b;
+disp(['The result of addition is: ', num2str(result)]);
+
+% Section 3: Variables and Data Types
+name = 'MATLAB';
+version = 2023;
+disp(['Welcome to ', name, '! Version: ', num2str(version)]);
+
+% Section 4: Basic Plotting
+x = 0:0.1:10;
+y = sin(x);
+figure; % Creates a new figure window
+plot(x, y);
+title('Sine Wave');
+xlabel('x');
+ylabel('sin(x)');
+
+% Section 5: For Loops
+disp('The first 10 square numbers:');
+for i = 1:10
+    disp(i^2);
+end
+
+% Section 6: If-Else Statements
+x = input('Enter a number: ');
+if x > 0
+    disp('The number is positive.');
+else
+    disp('The number is non-positive.');
+end
+
+% Section 7: User Input
+user_name = input('What is your name? ', 's');
+disp(['Hello, ', user_name, '!']);
+
+% Section 8: Matrix Basics
+A = [1, 2; 3, 4];
+disp('Matrix A:');
+disp(A);
+disp('Transpose of A:');
+disp(A');
+
+% Section 9: Functions
+% Function is defined at the end of the script
+n = input('Enter a number to calculate its factorial: ');
+disp(['Factorial of ', num2str(n), ' is: ', num2str(factorial(n))]);
+
+% Section 10: Basic File I/O
+data = 1:10;
+save('data.mat', 'data'); % Save data to a MAT file
+disp('Data saved to file "data.mat".');
+loaded_data = load('data.mat'); % Load data from file
+disp('Loaded data:');
+disp(loaded_data.data);
+
+% --- Function Definitions ---
+function result = factorial(n)
+    % This function calculates the factorial of a number
+    result = 1;
+    for i = 1:n
+        result = result * i;
+    end
+end
