@@ -7,6 +7,7 @@ clear all;
 % 1. outside of matlab, open the folder and see its content
 
 currentFolder = pwd;
+disp(currentFolder)
 
 %% create a matrix of random numbers
 % 1. save it somewhere on the hard drive
@@ -18,13 +19,15 @@ writematrix(myMatrix, [currentFolder '\myRandomMatrix.csv']); % save as comma se
 
 save([currentFolder '\myRandomMatrix'],"myMatrix"); % this saves an "m" file, MATLAB's native data file format
 
-%%
+%% create a new matrix to load
+% 1. matrix to edit in Excel
+% 2. load it in MATLAB  
 
-% Section 10: Basic File I/O
-data = 1:10;
-save('data.mat', 'data'); % Save data to a MAT file
-disp('Data saved to file "data.mat".');
-loaded_data = load('data.mat'); % Load data from file
-disp('Loaded data:');
-disp(loaded_data.data);
+myOneMatrix = ones(5,5);
+
+writematrix(myOneMatrix, [currentFolder '\myOneMatrix.csv']); % save as comma separated file that can be interpreted as table by Excel
+
+myNextMatrix = readmatrix([currentFolder '\myOneMatrix.csv']);
+
+
 
