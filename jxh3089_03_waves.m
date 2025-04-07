@@ -146,7 +146,7 @@ end
 
 % generate noise
 alpha = [0 -1 2];
-multip = [0 2 1];
+multip = [0 2 1]; % noise multiplier
 wavesN = nan(length(alpha),N);
 for wIdx = 1:length(alpha)
     cn = dsp.ColoredNoise(Color='custom', SamplesPerFrame=N, InverseFrequencyPower=alpha(wIdx));
@@ -173,4 +173,10 @@ for wIdx = 1:size(wavesN,1)
     end
     set(gca,'FontSize',12)
 end
+
+%% save the last wave
+
+myWave = wavesN(end,:);
+
+save('myWorkingWave',"myWave", "timeVec")
 
